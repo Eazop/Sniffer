@@ -2,7 +2,8 @@
 <GridLayout class="page">
     <ListView class="list-group" [items] = "sensors">
         <ng-template let-sensor="item" let-i="index" let-odd="odd" let-even="even">
-            <Label [text]="sensor.name"></Label>
+            <!-- <Label [text]="sensor.name" class="h2 description-label"></Label> -->
+            <Button class="btn btn-primary btn-active p-5 m-5" text="Change label text" (tap)="changeLabelText()"></Button>
         </ng-template>
     </ListView>
 </GridLayout>
