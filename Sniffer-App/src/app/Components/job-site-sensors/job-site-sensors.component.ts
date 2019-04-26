@@ -13,19 +13,15 @@ import { SensorReading } from '~/app/Models/SensorReading';
 export class JobSiteSensorsComponent implements OnInit, OnDestroy {
     private firebaseSub: Subscription;
     displayText : any;
-    sensors : Array<Sensor>;
+    sensors : Array<SensorReading>;
     constructor(private firebase: FirebaseService) { }
 
     ngOnInit() {
-        this.sensors = [
-            {
-              name: "Alec's sensor",
-              reading : new SensorReading()
-            }
-        ];
+
         this.firebaseSub = this.firebase.getData().subscribe(res => {
+            const keys = Object.keys(res);
+            this.sensors = JSON.parse(res[keys[0]]);
             
-            this.displayText = JSON.stringify(res);
         });
     }
 
