@@ -8,12 +8,13 @@ import { SensorReading } from "~/app/Models/SensorReading";
 })
 export class FirebaseService {
     private firebaseUrl = "https://stark-sensor.firebaseio.com/airborne-data.json";
-
+    public lastResponse;
     constructor(private http: HttpClient) { }
 
     getData() {
         let headers = this.createRequestHeaders();
-        return this.http.get(this.firebaseUrl, { headers: headers });
+        this.lastResponse = this.http.get(this.firebaseUrl, { headers: headers });
+        return this.lastResponse;
     }
 
     private createRequestHeaders() {
