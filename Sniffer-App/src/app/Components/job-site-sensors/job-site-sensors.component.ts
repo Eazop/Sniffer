@@ -21,7 +21,6 @@ export class JobSiteSensorsComponent implements OnInit, OnDestroy {
         this.firebaseSub = this.firebase.getData().subscribe(res => {
             const keys = Object.keys(res);
             this.sensors = JSON.parse(res[keys[0]]);
-            
         });
     }
 

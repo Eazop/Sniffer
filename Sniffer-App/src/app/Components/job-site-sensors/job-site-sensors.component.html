@@ -3,8 +3,8 @@
     <ListView class="list-group" [items] = "sensors">
         <ng-template let-sensor="item" let-i="index" let-odd="odd" let-even="even">
             <StackLayout>
-            <Label class="h3 p-15" [text]="sensor" class="h2 description-label"></Label>
-            <!-- <Label class="h3 p-15" [text]="sensor.sensor_id" textWrap="true"></Label>  -->
+            <Label class="h3 p-15" [text]="sensor.sensor_name" class="h2 description-label"></Label>
+            <Label class="h3 p-15" [text]="sensor.sensor_id" textWrap="true"></Label> 
             <Button class="btn btn-primary btn-active p-5 m-5" text="Change label text" (tap)="changeLabelText()"></Button>
             </StackLayout>
         </ng-template>
