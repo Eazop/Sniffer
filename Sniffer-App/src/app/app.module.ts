@@ -1,7 +1,9 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-
+import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ItemsComponent } from "./Components/item/items.component";
@@ -21,8 +23,11 @@ import { JobSiteSensorsComponent } from './Components/job-site-sensors/job-site-
     ],
     imports: [
         NativeScriptModule,
+        NativeScriptCommonModule,
+        NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatButtonModule
     ],
     declarations: [
         AppComponent,
@@ -33,7 +38,7 @@ import { JobSiteSensorsComponent } from './Components/job-site-sensors/job-site-
     ],
     providers: [],
     schemas: [
-        NO_ERRORS_SCHEMA
+        CUSTOM_ELEMENTS_SCHEMA
     ]
 })
 /*

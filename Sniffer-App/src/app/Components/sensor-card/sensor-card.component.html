@@ -1,5 +1,8 @@
-<Button
-    text="sensor-card works!"
-    class="btn btn-primary"
-    [nsRouterLink]="['/job-site-sensors']"
-></Button>
+<ActionBar title="Groceries"></ActionBar>
+<GridLayout class="page">
+    <ListView class="list-group" [items] = "sensors">
+        <ng-template let-sensor="item" let-i="index" let-odd="odd" let-even="even">
+            <Label [text]="sensor.name"></Label>
+        </ng-template>
+    </ListView>
+</GridLayout>
