@@ -1,7 +1,7 @@
 export class SensorReading {
     sensor_id : number;
     sensor_name : string;
-    data_collection_time : Date;
+    data_collection_time : any;
     pm10_standard : number;
     pm25_standard : number;
     pm100_standard : number;

@@ -8,7 +8,7 @@ import { JobSiteSensorsComponent } from "./Components/job-site-sensors/job-site-
 
 const routes: Routes = [
     { path: "", redirectTo: "/sensors", pathMatch: "full" },
-    { path: "sensors", component: SensorCardComponent },
+    { path: "sensors", component: JobSiteSensorsComponent },
     { path: "job-site-sensors", component: JobSiteSensorsComponent },
     { path: "item/:id", component: ItemDetailComponent }
 ];
