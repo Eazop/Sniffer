@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirebaseService } from '~/app/Services/firebase/firebase.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { sensorModel } from '~/app/Models/data';
 
 @Component({
     selector: 'ns-job-site-sensors',
@@ -8,19 +9,21 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./job-site-sensors.component.css'],
     moduleId: module.id,
 })
-export class JobSiteSensorsComponent implements OnInit, OnDestroy {
-    private firebaseSub: Subscription;
+export class JobSiteSensorsComponent implements OnInit, OnDestroy  {
+    
+    public sensorData:sensorModel[];
+    public subscription: Subscription;
 
-    constructor(private firebase: FirebaseService) { }
-
-    ngOnInit() {
-        this.firebaseSub = this.firebase.getData().subscribe(res => console.log(res));
+    constructor(private firebaseService: FirebaseService) {
+       
     }
 
-    ngOnDestroy() {
-        if (this.firebaseSub && !this.firebaseSub.closed) {
-            this.firebaseSub.unsubscribe();
+    ngOnDestroy(): void {
+        if(this.subscription && this.subscription.closed === false){
+            this.subscription.unsubscribe();
         }
     }
-
+    ngOnInit(): void {
+        this.subscription = this.firebaseService.sensorData.subscribe(i => this.sensorData = i );
+    }
 }
