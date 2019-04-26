@@ -11,12 +11,7 @@ import { SensorReading } from '~/app/Models/SensorReading';
 export class SensorCardComponent implements OnInit {
   sensors : Array<Sensor>;
   constructor() { 
-    this.sensors = [
-      {
-        name: "Alec's sensor",
-        reading : new SensorReading()
-      }
-    ]
+
   }
 
   ngOnInit() {
