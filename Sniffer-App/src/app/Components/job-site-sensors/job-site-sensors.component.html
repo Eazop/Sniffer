@@ -1,1 +1,9 @@
-<Button text="job-site-sensors works!" class="btn btn-primary"></Button>
+
+    <ListView height="150" [items]="sensorData">
+        <ng-template let-country="item" let-i="index" let-odd="odd" let-even="even">
+            <Label text="id: " textWrap="true"></Label>
+            <Label [text]="sensorData.id"></Label>
+            <Label text="sensor_name: " textWrap="true"></Label>
+            <Label [text]="sensorData.sensor_name"></Label>
+        </ng-template>
+    </ListView>
